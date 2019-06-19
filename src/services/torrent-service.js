@@ -11,9 +11,7 @@ class TorrentService {
       const fileParams = {
         name: torrentFile.name,
         private: torrentFile.private,
-        announceList: [
-          torrentFile.announceList,
-        ],
+        announceList: torrentFile.announceList.length > 0 ? [torrentFile.announceList] : [],
         urlList: [
           torrentFile.downloadUrl,
         ],

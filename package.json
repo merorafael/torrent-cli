@@ -1,5 +1,5 @@
 {
-  "name": "torrent-cli",
+  "name": "@mero/torrent-cli",
   "description": "Torrent CLI to create and share private files on LAN",
   "version": "0.0.1",
   "author": "Rafael Mello <merorafael@gmail.com>",
@@ -10,7 +10,14 @@
   "dependencies": {
     "@oclif/command": "^1.5.14",
     "@oclif/config": "^1.13.0",
-    "@oclif/plugin-help": "^2.2.0"
+    "@oclif/plugin-help": "^2.2.0",
+    "axios": "^0.19.0",
+    "create-torrent": "^3.33.0",
+    "dat-swarm-defaults": "^1.0.2",
+    "discovery-swarm": "^6.0.0",
+    "humanize-duration": "^3.18.0",
+    "listr": "^0.14.3",
+    "webtorrent": "^0.103.2"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.0",

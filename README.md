@@ -47,7 +47,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/hello.js](https://github.com/merorafael/torrent-cli/blob/v0.0.1/src/commands/hello.js)_
+_See code: [src/commands/create.js](https://github.com/merorafael/torrent-cli/blob/v0.0.1/src/commands/hello.js)_
 
 ## `torrent-cli help [COMMAND]`
 

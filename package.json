@@ -13,8 +13,6 @@
     "@oclif/plugin-help": "^2.2.0",
     "axios": "^0.19.0",
     "create-torrent": "^3.33.0",
-    "dat-swarm-defaults": "^1.0.2",
-    "discovery-swarm": "^6.0.0",
     "humanize-duration": "^3.18.0",
     "listr": "^0.14.3",
     "webtorrent": "^0.103.2"

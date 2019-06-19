@@ -2,18 +2,14 @@ const {Command, flags} = require('@oclif/command')
 const fs = require('fs')
 const Listr = require('listr')
 const path = require('path')
-const {File} = require('../models/file')
+const {File, TorrentFile} = require('../models/file')
 const fileService = require('../services/file-service')
 const torrentService = require('../services/torrent-service')
 
 class CreateCommand extends Command {
   async run() {
     const {flags} = this.parse(CreateCommand)
-
-    const file = new File({
-      name: (flags.localUrl) ? path.basename(flags.localUrl) : path.basename(flags.downloadUrl),
-      downloadUrl: flags.downloadUrl,
-    })
+    const fileName = (flags.localUrl) ? path.basename(flags.localUrl) : path.basename(flags.downloadUrl)
 
     const tasks = new Listr([
       {
@@ -21,7 +17,7 @@ class CreateCommand extends Command {
         enabled: ctx => Boolean(ctx.localUrl) === true,
         task: ctx => {
           return fileService.createLocalFileBuffer(ctx.localUrl).then(buffer => {
-            ctx.file.buffer = buffer
+            ctx.torrentFile.file.buffer = buffer
           })
         },
       },
@@ -29,15 +25,15 @@ class CreateCommand extends Command {
         title: 'Downloading remote file',
         enabled: ctx => Boolean(ctx.localUrl) === false,
         task: ctx => {
-          return fileService.createExternalFileBuffer(ctx.file.downloadUrl).then(buffer => {
-            ctx.file.buffer = buffer
+          return fileService.createExternalFileBuffer(ctx.torrentFile.downloadUrl).then(buffer => {
+            ctx.torrentFile.file.buffer = buffer
           })
         },
       },
       {
         title: 'Creating torrent file',
         task: ctx => {
-          return torrentService.createTorrent(ctx.file).then(torrentFile => {
+          return torrentService.createTorrent(ctx.torrentFile).then(torrentFile => {
             fs.writeFileSync(ctx.src + '/' + torrentFile.name, torrentFile.buffer)
           })
         },
@@ -45,10 +41,17 @@ class CreateCommand extends Command {
     ])
 
     tasks.run({
-      file: file,
+      torrentFile: new TorrentFile({
+        name: fileName + '.torrent',
+        downloadUrl: flags.downloadUrl,
+        private: flags.private,
+        announceList: flags.announce,
+        file: new File({
+          name: fileName,
+        }),
+      }),
       localUrl: flags.localUrl,
       src: flags.src || './',
-    }).catch(error => {
     })
   }
 }
@@ -71,6 +74,17 @@ CreateCommand.flags = {
     description: 'Directory when torrent file is write',
     default: './',
     required: false,
+  }),
+  private: flags.boolean({
+    description: 'Make a private torrent file (Works only on specified announcer tracker)',
+    default: false,
+    required: false,
+    allowNo: true,
+  }),
+  announce: flags.string({
+    description: 'Tracker announce address used for torrent download',
+    required: false,
+    multiple: true,
   }),
 }
 

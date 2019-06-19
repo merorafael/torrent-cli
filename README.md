@@ -34,11 +34,36 @@ USAGE
 
 ## `torrent-cli create`
 
-Describe the command here
+Create a torrent file
+
+```
+USAGE
+  $ torrent-cli create
+
+OPTIONS
+  -d, --downloadUrl=downloadUrl  (required) Download url used for WebSeed and download file if localUrl is not informed
+  -l, --localUrl=localUrl        Local file url
+  --announce=announce            Tracker announce address used for torrent download
+  --[no-]private                 Make a private torrent file (Works only on specified announcer tracker)
+  --src=src                      [default: ./] Directory when torrent file is write
+```
 
 ## `torrent-cli share`
 
-Describe the command here
+Download and share torrent file
+
+```
+USAGE
+  $ torrent-cli share
+
+OPTIONS
+  -f, --torrentFile=torrentFile  (required) Torrent file address
+  -p, --path=path                [default: ./] Folder to download files
+  -t, --timeout=timeout          [default: 0] Client timeout in milliseconds(0 for infinity)
+  --[no-]dht                     Enable/Disable BitTorrent DHT protocol
+  --[no-]tracker                 Enable/Disable BitTorrent Tracker protocol
+  --[no-]webSeeds                Enable/Disable web seeds
+```
 
 ## `torrent-cli help [COMMAND]`
 

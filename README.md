@@ -4,9 +4,9 @@ torrent-cli
 Torrent CLI to create and share private files on LAN
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
-[![License](https://img.shields.io/npm/l/torrent-cli.svg)](https://github.com/merorafael/torrent-cli/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@mero/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@mero/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
+[![License](https://img.shields.io/npm/l/@mero/torrent-cli.svg)](https://github.com/merorafael/torrent-cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -28,26 +28,17 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`torrent-cli hello`](#torrent-cli-hello)
+* [`torrent-cli create`](#torrent-cli-create)
+* [`torrent-cli share`](#torrent-cli-share)
 * [`torrent-cli help [COMMAND]`](#torrent-cli-help-command)
 
-## `torrent-cli hello`
+## `torrent-cli create`
 
 Describe the command here
 
-```
-USAGE
-  $ torrent-cli hello
+## `torrent-cli share`
 
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src/commands/create.js](https://github.com/merorafael/torrent-cli/blob/v0.0.1/src/commands/hello.js)_
+Describe the command here
 
 ## `torrent-cli help [COMMAND]`
 

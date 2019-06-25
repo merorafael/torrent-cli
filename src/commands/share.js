@@ -14,7 +14,17 @@ class ShareCommand extends Command {
     const torrentFile = fs.readFileSync(flags.torrentFile)
     client.add(torrentFile, {path: flags.path}, torrent => {
       torrent.on('done', () => {
-        this.log('File downloaded in ' + flags.path)
+        torrent.files.forEach(file => {
+          this.log(`File ${file.name} download in ${flags.path}`)
+        })
+
+        if (timeout > 0) {
+          setTimeout(() => {
+            client.destroy(() => {
+              this.log(`Torrent client closed because timeout setted is reached(${timeout} milliseconds)`)
+            })
+          }, timeout)
+        }
       })
 
       torrent.on('download', bytes => {
@@ -43,14 +53,6 @@ class ShareCommand extends Command {
         this.log('------')
       })
     })
-
-    if (timeout > 0) {
-      setTimeout(() => {
-        client.destroy(() => {
-          this.log('Torrent client closed because timeout setted is reached(' + timeout + ' milliseconds)')
-        })
-      }, timeout)
-    }
   }
 }
 
@@ -71,7 +73,7 @@ ShareCommand.flags = {
   }),
   timeout: flags.string({
     char: 't',
-    description: 'Client timeout in milliseconds(0 for infinity)',
+    description: 'Client timeout after download completed in milliseconds(0 for infinity)',
     required: false,
     default: '0',
   }),

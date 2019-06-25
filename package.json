@@ -1,12 +1,14 @@
 {
-  "name": "@mero/torrent-cli",
-  "description": "Torrent CLI to create and share private files on LAN",
-  "version": "0.0.1",
+  "name": "@merorafael/torrent-cli",
+  "description": "Torrent CLI to create, download and seed torrent files",
+  "version": "0.1.1",
   "author": "Rafael Mello <merorafael@gmail.com>",
   "bin": {
     "torrent-cli": "./bin/run"
   },
-  "bugs": "https://github.com/merorafael/torrent-cli/issues",
+  "bugs": {
+    "url": "https://github.com/merorafael/torrent-cli/issues"
+  },
   "dependencies": {
     "@oclif/command": "^1.5.14",
     "@oclif/config": "^1.13.0",
@@ -34,6 +36,10 @@
   ],
   "homepage": "https://github.com/merorafael/torrent-cli",
   "keywords": [
+    "torrent",
+    "bittorrent",
+    "webtorrent",
+    "cli",
     "oclif"
   ],
   "license": "MIT",
@@ -45,7 +51,10 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "merorafael/torrent-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merorafael/torrent-cli.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",

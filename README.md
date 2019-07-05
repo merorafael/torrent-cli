@@ -4,8 +4,8 @@ torrent-cli
 Torrent CLI to create, download and seed torrent files.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/@merorafael/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@merorafael/torrent-cli.svg)](https://npmjs.org/package/torrent-cli)
+[![Version](https://img.shields.io/npm/v/@merorafael/torrent-cli.svg)](https://npmjs.org/package/@merorafael/torrent-cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@merorafael/torrent-cli.svg)](https://npmjs.org/package/@merorafael/torrent-cli)
 [![License](https://img.shields.io/npm/l/@merorafael/torrent-cli.svg)](https://github.com/merorafael/torrent-cli/blob/master/package.json)
 
 <!-- toc -->

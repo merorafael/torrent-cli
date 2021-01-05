@@ -13,7 +13,7 @@
     "@oclif/command": "^1.5.14",
     "@oclif/config": "^1.13.0",
     "@oclif/plugin-help": "^2.2.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "create-torrent": "^3.33.0",
     "humanize-duration": "^3.18.0",
     "listr": "^0.14.3",
